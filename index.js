@@ -9,6 +9,8 @@ const authRoutes = require("./src/routes/auth");
 const blogRoutes = require("./src/routes/blog");
 const caurselRoutes = require("./src/routes/caursel");
 
+let PORT = process.env.PORT || 4000;
+
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
@@ -63,6 +65,6 @@ mongoose
     "mongodb+srv://sandal:sandal123@cluster0.hgual.mongodb.net/Data?retryWrites=true&w=majority",
   )
   .then(() => {
-    app.listen(4000, () => console.log("Connection berhasil"));
+    app.listen(PORT, () => console.log("Connection berhasil"));
   })
   .catch((err) => console.log(err));
